@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<div lang="en">
+    <head>
+    <title>ProjectPOINT</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+     
+      li.page-item 
+      {
+        padding:0vh 1vh;
+      }
+      li.page-item .page-link
+      {
+        border-radius:1vh;
+      }
+ li.page-item.active .page-link
+      {
+        border-color:white;
+        background-color:green;
+      }
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap');
+    body
+    {
+    
+        min-height: 90vh;
+        background-size:cover;
+        font-family:'Montserrat', sans-serif;
+    }
+.custom-box {
+max-width:80%;
+background-color:#ebd8b7;
+margin:30px auto;
+padding:50px 40px;
+border-radius:10px;
+
+}
+.quiz-home-box 
+{
+text-align:center;
+}
+.quiz-home-box h4
+{
+    font-size:30px;
+    font-weight:400;
+    color:#444444;   
+    margin:0 0 30px;
+}
+
+
+#START, #NEXT , #RESULT
+   {
+    background-color:#28A745;
+    color:white; 
+   /**border #28A745**/
+    padding:10px 15px 10px 15px;
+    border-radius:5px;
+    margin-top:2%;
+    font-family:'Montserrat', sans-serif;
+    white-space: nowrap;
+    text-align:center;
+    }
+#HOME, #REATTEMPT
+{
+  background-color:#28A745;
+  color:white; 
+  /**border #28A745**/
+  padding:2.5% 3.5%;
+  margin-left:30%;
+  border-radius:10px;
+  margin-top:4%;
+  margin-left:5%;
+  font-family:'Montserrat', sans-serif;
+  white-space: nowrap;
+  text-align:center;
+}
+.quiz-box
+{
+background-color:#ebd8b7;
+
+}
+
+.quiz-box .stats
+{
+ display:flex;
+ flex-wrap :wrap;
+ justify-content: space-between;
+ font-size:30px;
+ transform:uppercase;
+ color:#000000;
+}
+.quiz-box .stats .quiz-time
+{
+flex-basis:calc(50% -20px);
+max-width:calc(50% -20px);
+}
+.quiz-box .stats .quiz-time .remaining-time
+{
+height:60px ;
+width:60px ;
+color:#059e4c ;
+border:2px solid #059e4c ;
+weight:800;
+line-height:56px;
+text-align:center;
+border-radius:50%;
+
+}
+
+.quiz-box .stats .quiz-time .remaining-time.warningTime
+{
+ color:red;
+ font-size:40px;
+ border:2px solid red;
+}
+
+ .quiz-box .question-box
+ {
+     background-color: #ffffff;
+      border: 1px solid #c2af91;
+     padding:40px 30px;
+     margin-top:40px;
+     border-radius:10px;
+    text-align:center;
+    position:relative;
+    animation:zoomIn 0.3s linear forwards;
+ }
+ .quiz-box .question-box .correct-question-num
+ {
+  height:70px;
+  width:70px; 
+  background-color:#ffffff;
+    border: 1px solid #c2af91;
+  font-size:20px;
+  font-weight:800;
+  font-family: 'Concert One' , 'cursive';
+  color:#665b49;
+  border-radius:50%;
+  line-height:68px;
+  text-align:center;
+  position:absolute;
+  top:-38px;
+  left:45%;
+  z-index:1;
+ }
+ 
+ .quiz-box .question-box .question-text
+ 
+ {
+     font-size:30px;
+     font-family:verdana;
+ }
+ 
+ .quiz-box  .option-box .option
+ {
+   
+     text-align: center;
+     text-transform:uppercase;
+     background-color:#ffffff;
+     padding:2.5% 3.5%;
+     margin-top:2%;
+     border-radius:10px;
+     font-family:'Montserrat', sans-serif;
+     white-space: nowrap;
+     text-align:center;
+   
+     position:relative;
+     animation:zoomIn 0.3s linear forwards;
+     opacity:0;
+}
+
+ @keyframes zoomIn
+  { 
+      0%
+    {
+      transform: scale(0.8);
+      
+    }
+     100%
+    {
+      transform: scale(1);
+      opacity:1;
+    }
+  }
+.quiz-box  .option-box .option.already-answered
+{
+pointer-events:none;
+}
+
+.quiz-box  .option-box .option.correct
+{
+background-color:#11c466;
+  border-color:green;
+color:white;
+animation: pulse 0.5s linear;
+opacity:1;
+
+}
+
+.quiz-box  .option-box .option.correct::before
+{
+content:'' ;
+position:absolute;
+height:30px;
+width:30px;
+right:15px;
+background-image:url("marked.jpeg") ;
+background-size: 20px ;
+background-position: center ;
+background-repeat:no-repeat;
+animation: fadeInRight 0.5s ease;
+
+}
+
+@keyframes pulse
+{
+   0%{
+   transform:scale(1);
+     }
+   50%{
+    transform:scale(1.1);
+    }
+     100%{
+     transform:scale(1);
+     }
+ }
+
+ .quiz-box  .option-box .option.correct-instead
+{
+background-color:#11c466;
+  border-color:green;
+color:white;
+animation: pulse 0.5s linear;
+opacity:1;
+
+}
+
+
+.quiz-box  .option-box .option.wrong
+{ 
+background-color:#f85843;
+border-color:red;
+color:white;
+animation:shake 1s linear;
+opacity:1;
+
+}
+.quiz-box  .option-box .option.wrong::before
+{
+content:'' ;
+position:absolute;
+background-color:red;
+height:30px;
+width:30px;
+right:15px;
+background-image:url("wrong.jpeg") ;
+background-size: 20px ;
+background-position: center ;
+background-repeat:no-repeat;
+animation: fadeInRight .5s ease;
+}
+
+@keyframes shake
+{
+
+  0%, 30%, 50%
+   {
+    transform:translateX(-10px);
+   }
+  20% ,40%
+   {
+    transform:translateX(10px);
+   }
+  60%
+  {
+    transform:translateX(-7px);
+  }
+  
+  70%
+  {
+  transform:translateX(7px);
+  }
+  80%
+  {
+    transform:translateX(-4px);
+  }
+  90%
+  {
+     transform:translateX(4px);
+  }
+  100%
+  {
+  transform:translateX(0px);
+  }
+  
+}
+
+@keyframes fadeInRight
+{
+  0%
+  {
+    opacity:0;
+    transform: translateX(30px);
+   }
+
+  100%
+  {
+    opacity:1;
+    transform: translateX(0px);
+  }
+}
+.quiz-box .answer-description
+ {
+     background-color: #ffffff;
+     width:100%;
+     font-size:15px;
+     margin:10px 3px 10px;
+     padding:10px 10px;
+     border-radius:10px;
+     text-align:center;
+     display:none;
+     
+ }
+ 
+ #DESCRIP
+ {
+ animation: fadeInRight .5s ease;
+ }
+ 
+.next-question
+{ 
+position:relative;
+}
+.next-question-btn  
+{
+animation:fadeInRight .5s ease;
+position:absolute;
+display:none;
+
+}
+
+.see-result-btn
+{
+    display:none;
+}
+
+.see-result-btn.show
+{
+display:block;
+animation: fadeInRight .5s ease;
+}
+#RESULT
+{
+animation: fadeInRight 4.5s ease;
+}
+ 
+#RESULT
+{
+animation: fadeInRight 4.5s ease;
+}
+
+
+.result-heading
+  {
+    font-size:30px;
+    font-weight:800;
+    color:#e9af4a;
+    font-family:verdana;
+  }
+.score
+  {
+ 
+font-family:verdana;
+  }
+#percentage , #total-que, #attempts, #wrongs, #corrects
+  {
+    font-size:27px; 
+    
+  }
+  .resultComment1
+	{
+	color:#35a76a;
+	font-family:verdana;
+	font-size:40px;
+	animation:fadeInOut 1s linear infinite;
+	}
+	.resultComment2
+	{
+	color:orange;
+	font-family:verdana;
+	font-size:40px;
+	animation:fadeInOut 1s linear infinite;
+	}
+	@keyframes fadeInOut
+	{
+	0%
+	{
+	opacity:0
+	}
+	50%
+	{
+	opacity:1
+	}
+	100%
+	{
+	opacity:0
+	}
+	}
+	
+	@media only screen and (max-width:750px)
+	{
+		 .quiz-box  .option-box .option
+		 {
+	 margin-top:3%;
+     flex-basis: calc(100%);
+     max-width: calc(100%);
+     }
+
+       .quiz-box .answer-description
+      {
+      	margin-top:20%;
+      }
+
+       #START, #NEXT , #RESULT
+       {
+       	  width:100%;
+       }
+
+       .quiz-box  .option-box .option.wrong::before .quiz-box  .option-box .option.correct::before
+       {
+       height:10px;
+       width:10px;
+       margin-top:-90px;
+	}
+	}
+	@media only screen and (min-width:751px)
+	{
+		.quiz-box  .option-box .option
+		{
+	  flex-basis: calc(50% - 20px);
+     max-width: calc(40% - 20px);
+        }
+         #START, #NEXT , #RESULT
+       {
+
+       	  margin-left:40%;
+       }
+        .quiz-box  .option-box .option.wrong::before .quiz-box  .option-box .option.correct::before
+
+       {
+       height:30px;
+       width:30px;
+       top:10px;
+       }
+
+   }
+
+    </style>
+  
+    <div class="container" >
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top "  >
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.png" alt="Logo" style="width:48px;">
+          </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                 
+                 
+                <li class="nav-item">
+                  <a class="nav-link" href="file:///C:/Users/adetulas/Desktop/My%20Apps/ProjectPOINT/index.html"><button type="button" class="btn btn-success btn-md " >Home</button></a>
+                </li>
+    
+                <li class="nav-item">
+                  <a class="nav-link" href="file:///C:/Users/adetulas/Desktop/My%20Apps/ProjectPOINT/The department.html"><button type="button" class="btn btn-success btn-md " >The Department</button></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="file:///C:/Users/adetulas/Desktop/My%20Apps/ProjectPOINT/PM Career.html"> <button type="button" class="btn btn-success btn-md " >Our Career</button></a>
+                </li>    
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><button type="button" class="btn btn-success btn-md " >SOC</button></a>
+                </li> 
+                <li class="dropdown">
+    
+                  <a href="#" class="nav-link " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="z-index:+5">
+                 <button type="button" class="btn btn-success btn-md dropdown-toggle active" >Academia</button> </a>
+    
+                  <ul class="dropdown-menu" >
+                  <li><p class="dropdown-item">Choos your level</p></li> 
+                   <li><a class="dropdown-item" href="#">Fresher</a></li> 
+                   <li> <a class="dropdown-item" href="#">200 level</a></li> 
+                    <li><a class="dropdown-item" href="#">300 level</a></li> 
+                   <li> <a class="dropdown-item" href="#">400 level</a></li> 
+                    <li><a class="dropdown-item" href="#">Internship </a></li>
+                    <li><a class="dropdown-item" href="#">Final year</a> </li>
+
+                </ul>
+              </li>
+            </div>  
+          </nav>
+      </div>
+    </div>
+    <header  class="btn btn-success" style="margin-top:70px;; width:100%; height:70%">
+        <div class="container">
+                <h1>Academia</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing eliras scele!</p>
+        </div>
+
+   </header>
+        
+ <!--Pagination -->
+         
+     <ul class="pagination pagination-lg justify-content-center" style="margin:20px 0">
+        
+        
+        <li class="page-item "><a href="Academia(courses).html" class="page-link">Courses</a></li>
+        <li class="page-item"><a href="materials.html" class="page-link">materials</a></li>
+        <li class="page-item active"><a href="CBT.html" class="page-link">CBT</a></li>
+        
+    </ul>
+<div class="container">
+        
+    <div class="quiz-home-box custom-box" id="homeBox">
+        <h4>You'll have 15secs to answer each questions. Success!!</h4>
+        <button onclick="startQuiz()"  type="button" style="margin:3%;" type="button" class="btn btn-success btn-lg " id="START">Start the quiz</button><br>      
+    </div>
+  </div>
+
+  <div class="container">
+  <div class="quiz-box custom-box" id="quizCustomBox" style="display:none;">
+   
+     <div class="stats">
+      <div class="quiz-time">
+       <div class="remaining-time" id="REM">
+         15
+       </div>
+      </div>
+      <div class="score-board"> 
+        <span class="score-text">Score: </span>
+       <span class="correct-answers"></span>
+      </div>
+     </div>
+
+    <div class="question-box">
+      <div class="correct-question-num">
+          
+      </div>
+
+       <div class="question-text"> 
+
+       </div>
+    
+    </div>
+           <div class="option-box" style="display:flex; flex-wrap:wrap; justify-content:space-between;">
+     
+          </div>
+       <div class="answer-description" id="DESCRIP"> 
+    
+       </div>
+
+    <div class="next-question">
+      <button type="button" onclick="showNext()" class="next-question-btn btn" id="NEXT">Next Question </button>
+      <button type="button" onclick="result()" class="see-result-btn btn" id="RESULT">See Your Result </button>
+    </div>
+     <br>
+    <br>
+ </div>
+
+    
+ </div>
+
+
+
+ </div> 
+ <div class="jumbotron" id="ResultCustomBox" style="display:none; text-align:center;">
+  <h1 class="result-heading">Test Result Analysis</h1>
+
+  <br>
+  <div class="Total-question">
+  Total Question: <span id="total-que"></span>
+  </div>
+  <br>
+  
+  <div class="attempt-result">
+  Attempt: <span id="attempts"></span>
+  </div>
+  <br>
+  <div class="correct-result">
+  Correct: <span id="corrects"></span>
+  </div>
+ <br>
+ 
+ <div class="wrong-result">
+ Wrong: <span id="wrongs"></span>
+ </div>
+ <br>
+ 
+ <div class="score">Score Percentage :
+	<span id="percentage"></span>
+	</div>
+	<br>
+	<div id="resultComment">
+	</div>
+  <br>
+     <button onclick="startQuizAgain()"  type="button"   id="REATTEMPT">Reattempt</button>
+  
+	   <button onclick="home()"  type="button" id="HOME">Go home</button>
+	
+ 
+  </div>
+</div>  
+
+   
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4 bg-dark navbar-dark" style="color:white;">
+
+  <!-- Footer Links -->
+
+  <div class="container text-center text-md-left" >
+
+    <!-- Grid row -->
+
+    <div class="row" >
+      
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Footer Content</h5>
+        <p>Here you can use rows and columns to organize your footer content.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate
+          esse quasi, veritatis totam voluptas nostrum.</p>
+
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+        <ul class="list-unstyled" style="color:white;">
+          <li>
+            <p>
+              <a href="#!">The Department</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">About us & Our Career</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">BLOG</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="#!">Academia</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+      <hr class="clearfix w-100 d-md-none">
+          <div class="col-md-2 col-lg-2  mx-auto my-4">
+        
+            <h5 class="font-weight-bold text-uppercase mb-4">
+              Contact Us
+            </h5>
+      <form action="/action_page.php" class="needs-validation">
+
+        <div class="form-group">
+           <input type="text" class="form-control" id="uname" placeholder="Your name"
+        name="uname" required>
+       </div>
+       <div class="form-group">
+        <input type="text" class="form-control" id="uname" placeholder="Your Email"
+     name="uname" required> 
+     </div>
+<div class="form-group">
+<textarea class="form-control" rows="5" id="comment" name="text" placeholder="Your message"></textarea>
+
+</div>
+    <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+          </div>
+            
+          <hr class="clearfix w-100 d-md-none">
+          <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+        
+            <!-- Social buttons -->
+            <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+    
+            <!-- Facebook -->
+            <a type="button" class="btn-floating btn-fb">
+              <i class="fa fa-facebook-f"></i>
+            </a>
+            <!-- Twitter -->
+            <a type="button" class="btn-floating btn-tw">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <!-- Google +-->
+            <a type="button" class="btn-floating btn-gplus">
+              <i class="fa fa-google-plus-g"></i>
+            </a>
+            <!-- Dribbble -->
+            <a type="button" class="btn-floating btn-dribbble">
+              <i class="fa fa-dribbble"></i>
+            </a>
+            <a type="button" class="btn-floating btn-youtube">
+              <i class="fa fa-youtube"></i>
+            </a>
+          </div>
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright: Website developed by 
+    <a href="#">lotus-web</a>
+  </div>
+  <!-- Copyright -->
+
+  </footer>
+</body>
+
+<script>
+     const questionText= document.querySelector(".question-text");
+	const optionBox= document.querySelector(".option-box");
+	const descrip=document.querySelector(".answer-description");
+	const CurrentNum=document.querySelector(".correct-question-num");
+	const nextQue=document.querySelector(".next-question-btn");
+	const correctAnswer=document.querySelector(".correct-answers");
+	const timeLeft=document.querySelector(".remaining-time");
+	
+	let attempt=0;
+	let questionIndex=0;
+	let score=0;
+	let number=0;
+	let myArray=[];
+	let interval;
+	let remTim;
+	QuizApp=
+	
+	[
+	
+	/**ADMIN SECTION**/
+	
+	/** SCIENCE 101 **/
+	
+	/**QUESTION 1**/
+	
+	{
+	question:     " what sound do lions make?",
+	option:      ["Roar " , "Bark" , "crow", "talk" ],
+	answer:      0,  /**arrays start from 0   e.g...["0" , "1" , "2" , "3"] **/
+	description:   " Yes, Lions aren't dogs or cocks , so they roar! ",
+	otherDescription: "like seriously, you don't know lions <b>roar</b>?...My God!!"
+	},
+	
+	/** QUESTION 2**/
+	
+	{
+	question:    " what sound do cocks make?",
+	option:         ["Roar " , "Bark" , "crow" ],
+	answer:          2,   /**arrays start from 0   e.g...["0" , "1" , "2" , "3"] **/
+	description:     "Yeah, Cocks aren't lions or dogs , so they crow! ",
+	
+	otherDescription: "Common!! , you know they crow, they're cocks "
+	}
+	,
+	
+	/** QUESTION 3**/
+	
+	{
+	question:    " what sound do dogs make?",
+	
+	option:     ["Roar " , "Bark" , "crow" ],
+	
+	answer:      1,  /**arrays start from 0   e.g...["0" , "1" , "2" , "3"] **/
+	
+	description:       "Absolutely!! Dogs aren't lions or cocks , so they bark ",
+	
+	otherDescription:   "lol... Even an A.I like me knows they bark!"
+	}
+	,
+	
+	/** QUESTION 4**/
+	
+	{
+	question:     " Your fingernails and hair keep growing afrer you die",
+	
+	option:        ["True", "False" ],
+	
+	answer:       1, /**arrays start from 0   e.g...["0" , "1" , "2" , "3"] **/
+	
+	description:     " They really don't  ",
+	
+	otherDescription: " Really? Is your fingernail a grassroot or something?"
+	}
+	
+	,
+	
+	/** QUESTION 5**/
+	
+	{
+	question:     " All objects fall by gravity's pull at the same speed",
+	
+	option:        ["True", "False" ],
+	
+	answer:       0, /**arrays start from 0   e.g...["0" , "1" , "2" , "3"] **/
+	
+	description:     " They all do at <b> 10m/s </b> .",
+	
+	otherDescription: "Humm...Actually they all do. It's been test on the <b> moon </b> which has no <b>air resistance.</b>"
+	}
+	]
+	
+	
+	
+	
+	
+	function startQuiz()
+	{
+	document.getElementById("homeBox").style.display="none";
+	document.getElementById("quizCustomBox").style.display="block";
+	startTimer();
+	generateRandomQuestions();
+	}
+	function load()
+	
+	{
+	
+	number++;
+	questionText.innerHTML=QuizApp[questionIndex].question;
+	CreateOptions();
+	
+	CurrentNum.innerHTML=number + "/" + QuizApp.length;
+	descrip.innerHTML=QuizApp[questionIndex].description;
+	scoreBoard();
+	
+	}
+	
+	
+	function CreateOptions()
+	
+	{
+	optionBox.innerHTML="";
+	let animationDelay=0.1;
+	for(let i=0; i<QuizApp[questionIndex].option.length; i++)
+	{
+	const OPTION= document.createElement("div");
+	OPTION.innerHTML= QuizApp[questionIndex].option[i];
+	OPTION.classList.add("option");
+	OPTION.id=i;
+	animationDelay=animationDelay+0.1;
+	OPTION.style.animationDelay=animationDelay + "s";
+	OPTION.setAttribute("onclick","check(this)");
+	optionBox.appendChild(OPTION);
+	}
+	}
+	
+	
+	function generateRandomQuestions()
+	{ 
+	
+	
+	const randomNumber=Math.floor(Math.random() * QuizApp.length);
+	
+	let hitDuplicate=0;
+	
+	if(myArray.length ==0)
+	{
+	
+	questionIndex=randomNumber;
+	
+	}
+	
+	else
+	{
+	for(let i=0; i<myArray.length; i++)
+	{
+	if (randomNumber== myArray[i])
+	{
+	hitDuplicate=1;
+	}
+	}
+	
+	if (hitDuplicate ==1)
+	{
+	generateRandomQuestions();
+	return;
+	}
+	else 
+	{
+	questionIndex=randomNumber;
+	}
+	}
+	myArray.push(randomNumber);
+	load();
+	
+	}
+	
+	
+	function startTimer()
+	{
+	remTim=document.getElementById("REM").innerHTML="15";
+	interval= setInterval(()=>
+	{
+	remTim --;
+	
+	if (remTim<1)
+	{
+	clearInterval(interval);
+	disableOptions();
+	document.getElementById("NEXT").style.display="block";
+	
+	for (let i=0; i<optionBox.children.length; i++)
+	{
+	if(optionBox.children[i].id==QuizApp[questionIndex].answer)
+	{
+	optionBox.children[i].classList.add("correct-instead");
+	}
+	}
+	}
+	
+	
+	if (remTim<10)
+	{
+	timeLeft.classList.add("warningTime");
+	}
+	
+	document.querySelector(".remaining-time").innerHTML=remTim;
+	},1000)
+	
+	}
+	
+	function quizOver()
+	{
+	
+	clearInterval(interval);
+	disableOptions();
+	alert("Your Test is over");
+	document.getElementById("RESULT").style.display="block";
+	document.getElementById("NEXT").style.display="none";
+	
+	}
+	
+	function check(ele)
+	{
+	
+	const id=ele.id;
+	
+	if (id==QuizApp[questionIndex].answer)
+	{
+	ele.classList.add("correct");
+	score++;
+	}
+	else
+	{
+	ele.classList.add("wrong");
+	descrip.innerHTML=QuizApp[questionIndex].otherDescription;
+	
+	for (let i=0; i<optionBox.children.length; i++)
+	{
+	if(optionBox.children[i].id==QuizApp[questionIndex].answer)
+	{
+	optionBox.children[i].classList.add("correct-instead");
+	}
+	}
+	}
+	attempt ++;
+	document.getElementById("DESCRIP").style.display="block";
+	document.getElementById("NEXT").style.display="block";
+	disableOptions();
+	scoreBoard();
+	
+	
+	if(number==QuizApp.length)
+	{
+	quizOver();
+	}
+	clearInterval(interval);
+	
+	}
+	
+	function disableOptions()
+	{
+	for(let i=0; i<optionBox.children.length; i++)
+	{
+	optionBox.children[i].classList.add("already-answered");
+	}
+	}
+	
+	function scoreBoard()
+	{
+	correctAnswer.innerHTML=score;
+	}
+	
+	function showNext()
+	{
+	timeLeft.classList.remove("warningTime");
+	
+	document.getElementById("DESCRIP").style.display="none";
+	document.getElementById("NEXT").style.display="none";
+	document.getElementById("RESULT").style.display="none";
+	generateRandomQuestions();
+	startTimer();
+	
+	}
+	
+	function result()
+	{
+	var totalQue=QuizApp.length;
+	var correctAns= correctAnswer.innerHTML;
+	var percent= correctAns/ totalQue * 100;
+	
+	document.getElementById("percentage").innerHTML= (correctAns / totalQue) * 100 +  "%" ;
+	document. getElementById("attempts").innerHTML=attempt;
+	document. getElementById("corrects").innerHTML=correctAns;
+	document. getElementById("wrongs").innerHTML=attempt - correctAns;
+	document. getElementById("total-que").innerHTML= totalQue;
+	
+	
+	if(percent > 90)
+	{
+	document. getElementById("resultComment").innerHTML="Here comes a champ 😃 .. Keep it up 🙌 !!";
+	document. getElementById("resultComment").classList.add("resultComment1");
+	}
+	if(percent <= 50)
+	{
+	document. getElementById("resultComment").innerHTML="You Can do it 💪 , try better!🙂 !!";
+	document. getElementById("resultComment").classList.add("resultComment2");
+	}
+	
+	document.getElementById("quizCustomBox").style.display="none";
+	document.getElementById("ResultCustomBox").style.display="block";
+	}
+	function home()
+	{
+	attempt=0;
+	questionIndex=0;
+	score=0;
+	number=0;
+	myArray=[];
+	document.getElementById("homeBox").style.display="block";
+	document.getElementById("quizCustomBox").style.display="none";
+	document.getElementById("ResultCustomBox").style.display="none";
+	document.getElementById("RESULT").style.display="none";
+	timeLeft.classList.remove("warningTime");
+	document.getElementById("DESCRIP").style.display="none";
+	}
+	
+	function startQuizAgain()
+	{
+	
+	document.getElementById("homeBox").style.display="none";
+	attempt=0;
+	questionIndex=0;
+	score=0;
+	number=0;
+	myArray=[];
+	document.getElementById("quizCustomBox").style.display="block";
+	document.getElementById("ResultCustomBox").style.display="none";
+	showNext();
+	}
+	
+
+</script>
+</html>
